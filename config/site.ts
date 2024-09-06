@@ -12,9 +12,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    home: "https://joseli.to",
-    notx: "https://notx.blue",
-    bluesky: "https://bsky.app/profile/joseli.to",
-    github: "https://github.com/breakzplatform/pessoas.dev",
+    bluesky: "https://bsky.app/profile/raisiexception.dev.br",
+    github: "https://github.com/daniloraisi/comunidade.dev.br",
   },
 }

@@ -1,14 +1,4 @@
-import { ArrowRight } from "lucide-react"
 import { type Metadata } from "next"
-
-import { Button, buttonVariants } from "@/components/ui/button"
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import { Stage } from "@/components/stage"
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -50,38 +40,30 @@ export default function CommunityPage({ params }: Props) {
         </Stage>
         <Stage title="Cadastrando um @ aqui, ele é meu pra sempre?" number={"❔"} last>
           <p className="max-w-lg">
-           <strong>No momento, sim.</strong> No futuro, é possível que exista uma verificação para filtrar quem realmente está usando de tempos em tempos. Nesse caso, um @ registrado anteriormente ficaria liberado para cadastro novamente.
+           <strong>No momento, sim.</strong>
           </p>
         </Stage>
         <Stage title="Está dando erro de 'Invalid Handle', como resolvo?" number={"❔"} last>
           <p className="max-w-lg">
-           Este erro tende a ser provisório. Tente fazer o processo de verificação novamente, ou se quiser, pode voltar pro @ antigo e cadastrar novamente. Você não vai perder nenhum seguidor e todas as menções antigas vão continuar funcionar.
+           Este erro tende a ser provisório. Faça o processo de verificação novamente, ou se quiser, volte o @ anterior e tente cadastrar novamente. Nenhum dado será perdido.
           </p>
         </Stage>
         <Stage title="Por quanto tempo eu posso ter um usuário personalizado?" number={"❔"} last>
           <p className="max-w-lg">
-          <strong>No momento, pra sempre.</strong> Por pra sempre, entenda-se &quot;enquanto eu conseguir manter isso aqui funcionando&quot;. No momento, os custos são irrisórios e morrer não está nos meus planos.
+          <strong>Não existe um limite de tempo.</strong> Farei o possível para manter o serviço funcionando.
           </p>
         </Stage>
-        <Stage title="Tenho um domínio e queria um site igual a esse, como faço?" number={"❔"} last>
+        <Stage title="Tenho um domínio próprio e queria algo assim, como faço?" number={"❔"} last>
           <p className="max-w-lg">
-            O código do {domain} está <a href="https://github.com/breakzplatform/pessoas.dev">disponível no GitHub</a>, basta fazer seu fork e dar deploy. O {domain} é baseado no projeto <a href="https://github.com/mozzius/community-handles">Community Handles</a>, também disponível no GitHub.
+            O código do {domain} está <a href="https://github.com/daniloraisi/comunidade.dev.br">disponível no GitHub</a>, basta fazer seu fork e dar deploy. O projeto é baseado no <a href="https://github.com/mozzius/community-handles">Community Handles</a>, também disponível no GitHub.
           </p>
         </Stage>
-        <Stage title="Não sou programador, mas tenho uma comunidade e quero um site assim. Me ajuda?" number={"❔"} last>
+        <Stage title="Não sou programador, tenho uma comunidade e quero disponibilizar para meus usuários. É possível?" number={"❔"} last>
           <p className="mb-4 max-w-lg">
-            Se são dúvidas simples, posso tentar resolvê-las via Chat no Bluesky, sem compromisso.
+            Para dúvidas pontuais, pode me contatar diretamente pelo BlueSky, minha DM está aberta. Para facilitar, <a href="https://bsky.app/profile/raisiexception.dev.br" target="_blank" rel="noreferer">clique aqui</a> para acessar meu perfil.
           </p>
           <p className="max-w-lg">
-            Caso tenha interesse em fazer algo profissional, com direcionamento e suporte inicial, entre em contato pelo email consultoria@joselil.to para negociarmos os valores dependendo de suas necessidades. Para um único domínio, os valores se iniciam em R$ 3000,00 (possíveis custos recorrentes não inclusos).
-          </p>
-        </Stage>
-        <Stage title="Achei caro, você é mercenário por acaso?" number={"❔"} last>
-          <p className="mb-4 max-w-lg">
-            Eu não sou de comentar preço de serviço no geral, mas como é do meu mesmo, creio estar autorizado: Sou obrigado a concordar. É caro mesmo. Meu tempo é caro, e por um breve período, será dedicado 100% a você, com todo profissionalismo esperado, caso contrate o serviço.
-          </p>
-          <p className="max-w-lg">
-            Reforçando que o código é aberto e está disponível, gratuitamente, no <a href="https://github.com/breakzplatform/pessoas.dev">GitHub</a>.
+            Caso tenha interesse em fazer algo profissional, com direcionamento, validaçao por senha e algo mais customizado, entre em contato pelo email <a href="mailto:danilo@raisi.tech">danilo@raisi.tech</a> para avaliarmos suas necessidades.
           </p>
         </Stage>
       </div>

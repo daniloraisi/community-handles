@@ -220,7 +220,7 @@ export default async function IndexPage({
                 {newHandle ? `"${newHandle}"` : "seu novo @"}
               </span>
               . Mude para <strong>No DNS Panel</strong>. Por fim, aperte em{" "}
-              <strong>&quot;Verify DNS Record&quot;</strong>.
+              <strong>&quot;Verify Text File&quot;</strong>.
             </p>
           </Stage>
         </div>

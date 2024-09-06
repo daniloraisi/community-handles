@@ -219,7 +219,7 @@ export default async function IndexPage({
               <span className="font-mono font-bold">
                 {newHandle ? `"${newHandle}"` : "seu novo @"}
               </span>
-              . Por fim, aperte em{" "}
+              . Mude para <strong>No DNS Panel</strong>. Por fim, aperte em{" "}
               <strong>&quot;Verify DNS Record&quot;</strong>.
             </p>
           </Stage>

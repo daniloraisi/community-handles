@@ -249,6 +249,6 @@ export default async function IndexPage({
   )
 }
 
-const RESERVED = ["joselito"].map((x) => x.toLowerCase())
+const RESERVED = ["raisi", "danilo", "raisiexception", "raisi.tech", "raisiexception.dev", "raisiexception.dev.br"].map((x) => x.toLowerCase())
 
 const BLOCKED = ["bolsonaro", "trump"].map((x) => x.toLowerCase())

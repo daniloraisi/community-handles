@@ -63,7 +63,7 @@ export default function CommunityPage({ params }: Props) {
             Para dúvidas pontuais, pode me contatar diretamente pelo BlueSky, minha DM está aberta. Para facilitar, <a href="https://bsky.app/profile/raisiexception.dev.br" target="_blank" rel="noreferer" className="underline bold">clique aqui</a> para acessar meu perfil.
           </p>
           <p className="max-w-lg">
-            Caso tenha interesse em fazer algo profissional, com direcionamento, validaçao por senha e algo mais customizado, entre em contato pelo email <a href="mailto:danilo@raisi.tech">danilo@raisi.tech</a> para avaliarmos suas necessidades.
+            Caso tenha interesse em fazer algo profissional, com direcionamento, validaçao por senha e algo mais customizado, entre em contato pelo email <a href="mailto:danilo@raisi.tech" className="underline bold">danilo@raisi.tech</a> para avaliarmos suas necessidades.
           </p>
         </Stage>
       </div>

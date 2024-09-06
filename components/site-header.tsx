@@ -43,28 +43,6 @@ export function SiteHeader({ children }: Props) {
           <span className="sr-only">GitHub</span>
         </div>
       </Link>
-      <Link href="https://joseli.to" target="_blank" rel="noreferrer">
-        <div
-          className={buttonVariants({
-            size: "sm",
-            variant: "ghost",
-          })}
-        >
-          <Icons.user className="size-5" />
-          <span className="sr-only">joselit.to</span>
-        </div>
-      </Link>
-      <Link href="https://notx.blue" target="_blank" rel="noreferrer">
-        <div
-          className={buttonVariants({
-            size: "sm",
-            variant: "ghost",
-          })}
-        >
-          <Icons.globe className="size-5" />
-          <span className="sr-only">notx.blue</span>
-        </div>
-      </Link>
       <ThemeToggle />
     </nav>
   )

@@ -233,14 +233,12 @@ export default async function IndexPage({
 
       <footer className="container grid gap-2 items-center pb-8">
         <p className="text-sm">
-          Diretamente de Pernambuco por{" "}
-          <a
+          Feito com ❤️ por{" "}
+          <span
             className="underline bold underline-offset-4"
-            href="https://joseli.to"
           >
-            Joselito
-          </a>
-          , com muito amor e carinho.
+            Danilo
+          </span>.
         </p>
         <p className="text-xs text-gray-400">
           Este site não utiliza nenhum cookie nem coleta absolutamente nenhum

@@ -55,12 +55,12 @@ export default function CommunityPage({ params }: Props) {
         </Stage>
         <Stage title="Tenho um domínio próprio e queria algo assim, como faço?" number={"❔"} last>
           <p className="max-w-lg">
-            O código do {domain} está <a href="https://github.com/daniloraisi/comunidade.dev.br">disponível no GitHub</a>, basta fazer seu fork e dar deploy. O projeto é baseado no <a href="https://github.com/mozzius/community-handles">Community Handles</a>, também disponível no GitHub.
+            O código do {domain} está <a href="https://github.com/daniloraisi/comunidade.dev.br" target="_blank" rel="noreferer" className="underline bold">disponível no GitHub</a>, basta fazer seu fork e dar deploy. O projeto é baseado no <a href="https://github.com/mozzius/community-handles" target="_blank" rel="noreferer" className="underline bold">Community Handles</a>, também disponível no GitHub.
           </p>
         </Stage>
         <Stage title="Não sou programador, tenho uma comunidade e quero disponibilizar para meus usuários. É possível?" number={"❔"} last>
           <p className="mb-4 max-w-lg">
-            Para dúvidas pontuais, pode me contatar diretamente pelo BlueSky, minha DM está aberta. Para facilitar, <a href="https://bsky.app/profile/raisiexception.dev.br" target="_blank" rel="noreferer">clique aqui</a> para acessar meu perfil.
+            Para dúvidas pontuais, pode me contatar diretamente pelo BlueSky, minha DM está aberta. Para facilitar, <a href="https://bsky.app/profile/raisiexception.dev.br" target="_blank" rel="noreferer" className="underline bold">clique aqui</a> para acessar meu perfil.
           </p>
           <p className="max-w-lg">
             Caso tenha interesse em fazer algo profissional, com direcionamento, validaçao por senha e algo mais customizado, entre em contato pelo email <a href="mailto:danilo@raisi.tech">danilo@raisi.tech</a> para avaliarmos suas necessidades.

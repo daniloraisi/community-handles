@@ -69,7 +69,7 @@ export default async function IndexPage({
               throw new Error("slur")
             }
 
-            if (domain === "pessoas.dev" && RESERVED.includes(handle)) {
+            if (domain === "comunidade.dev.br" && RESERVED.includes(handle)) {
               throw new Error("reserved")
             }
 
@@ -114,15 +114,10 @@ export default async function IndexPage({
             Tenha seu @ personalizado no Bluesky com o{" "}
             <span className="underline underline-offset-8">{domain}</span>
           </h1>
-          {domain == "pessoas.dev" && (
+          {domain == "comunidade.dev.br" && (
             <h2>
-              Feito por e para pessoas desenvolvedoras. É grátis e sem custo
+              Feito por e para pessoas da comunidade dev BR. É grátis e sem custo
               nenhum.
-            </h2>
-          )}
-          {domain == "ceuazul.online" && (
-            <h2>
-              Feito pra quem fala post e não skeet. É grátis e sem custo nenhum.
             </h2>
           )}
           <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">

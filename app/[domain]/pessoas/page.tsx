@@ -15,8 +15,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const domain = params.domain
 
   return {
-    title: `The ${domain} Community`,
-    description: `See all the members of the ${domain} community.`,
+    title: `Diretório • ${domain}`,
+    description: `Veja as pessoas que utilizam o ${domain}.`,
   }
 }
 
@@ -33,24 +33,11 @@ export default async function CommunityPage({ params }: Props) {
   ])
 
   return (
-    <main className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
+    <main className="container grid gap-6 items-center pt-6 pb-8 md:py-10">
       <div className="flex max-w-[980px] flex-col items-start gap-4">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          The {domain} <br className="hidden sm:inline" />
-          community
-        </h1>
-        <p className="max-w-[500px] text-lg text-muted-foreground sm:text-xl">
-          Want to join the {count} members of the {domain} community? Get your
-          own{" "}
-          <Link href="/" className="underline">
-            {domain} handle
-          </Link>
-          .
-        </p>
-
         <LoadMore
           domain={domain}
-          className="mt-8 grid w-full grid-cols-1 gap-4 overflow-hidden sm:grid-cols-2 md:grid-cols-3"
+          className="grid overflow-hidden grid-cols-1 gap-4 mt-8 w-full sm:grid-cols-2 md:grid-cols-3"
           loadMoreAction={loadMoreUsers}
           initialOffset={nextOffset}
         >

@@ -12,8 +12,8 @@ import { Stage } from "@/components/stage"
 export function generateMetadata({ params }: { params: { domain: string } }) {
   const domain = params.domain
   return {
-    title: `${domain} - get your community handle for Bluesky`,
-    description: `get your own ${domain} handle`,
+    title: `${domain} - Seu @ personalizado no Bluesky`,
+    description: `'Tenha seu usuário ${domain}`,
   }
 }
 
@@ -41,7 +41,7 @@ export default async function IndexPage({
       if (!handle.includes(".")) {
         handle += ".bsky.social"
       }
-      console.log("fetching profile", handle)
+      // console.log("fetching profile", handle)
       const actor = await agent.getProfile({
         actor: handle,
       })
@@ -65,11 +65,11 @@ export default async function IndexPage({
         if (validHandle) {
           try {
             const handle = newHandle.replace(`.${domain}`, "")
-            if (hasExplicitSlur(handle)) {
+            if (hasExplicitSlur(handle) || BLOCKED.includes(handle)) {
               throw new Error("slur")
             }
 
-            if (domain === "army.social" && RESERVED.includes(handle)) {
+            if (domain === "pessoas.dev" && RESERVED.includes(handle)) {
               throw new Error("reserved")
             }
 
@@ -107,156 +107,150 @@ export default async function IndexPage({
   }
 
   return (
-    <main className="container grid items-center gap-6 pb-8 pt-6 md:py-10">
-      <div className="flex max-w-[980px] flex-col items-start gap-4">
-        <h1 className="text-3xl font-extrabold leading-tight tracking-tighter sm:text-3xl md:text-5xl lg:text-6xl">
-          Get your own {domain} <br className="hidden sm:inline" />
-          handle for Bluesky
-        </h1>
-        <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
-          Follow the instructions below to get your own {domain} handle
-        </p>
-      </div>
-      <div>
-        <Stage title="Enter your current handle" number={1}>
-          <form>
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <div className="flex w-full max-w-sm items-center space-x-2">
-                {newHandle && (
-                  <input type="hidden" name="new-handle" value="" />
-                )}
-                <Input
-                  type="text"
-                  name="handle"
-                  placeholder="example.bsky.social"
-                  defaultValue={handle}
-                  required
-                />
-                <Button type="submit">Submit</Button>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Enter your current handle, not including the @
-              </p>
-              {error1 && (
-                <p className="flex flex-row items-center gap-2 text-sm text-red-500">
-                  <X className="size-4" /> Handle not found - please try again
+    <div>
+      <main className="container grid gap-6 items-center pt-6 pb-8 md:py-10">
+        <div className="flex max-w-[980px] flex-col items-start gap-4">
+          <h1 className="text-3xl font-extrabold tracking-tighter leading-tight sm:text-3xl md:text-5xl lg:text-6xl">
+            Tenha seu @ personalizado no Bluesky com o{" "}
+            <span className="underline underline-offset-8">{domain}</span>
+          </h1>
+          {domain == "pessoas.dev" && (
+            <h2>
+              Feito por e para pessoas desenvolvedoras. É grátis e sem custo
+              nenhum.
+            </h2>
+          )}
+          {domain == "ceuazul.online" && (
+            <h2>
+              Feito pra quem fala post e não skeet. É grátis e sem custo nenhum.
+            </h2>
+          )}
+          <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">
+            Siga o passo-a-passo a seguir para ter seu usuário{" "}
+            <strong>{domain}</strong>
+          </p>
+        </div>
+        <div>
+          <Stage title="Informe seu usuário atual no Bluesky" number={1}>
+            <form>
+              <div className="grid w-full max-w-md items-center gap-1.5">
+                <div className="flex items-center space-x-2 w-full max-w-md">
+                  {newHandle && (
+                    <input type="hidden" name="new-handle" value="" />
+                  )}
+                  <Input
+                    type="text"
+                    name="handle"
+                    placeholder="exemplo.bsky.social"
+                    defaultValue={handle}
+                    required
+                  />
+                  <Button type="submit">Enviar</Button>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Informe seu usuário atual, sem o @
                 </p>
-              )}
-              {profile && (
-                <>
-                  <p className="text-muted-forground mt-4 flex flex-row items-center gap-2 text-sm">
-                    <Check className="size-4 text-green-500" /> Account found
+                {error1 && (
+                  <p className="flex flex-row gap-2 items-center text-sm text-red-500">
+                    <X className="size-4" /> Conta não encontrada. Verifique e
+                    tente novamente.
                   </p>
-                  <Profile profile={profile} className="mt-4" />
-                </>
-              )}
-            </div>
-          </form>
-        </Stage>
-        <Stage title="Choose your new handle" number={2} disabled={!profile}>
-          <form>
-            <input type="hidden" name="handle" value={handle} />
-            <div className="grid w-full max-w-sm items-center gap-1.5">
-              <div className="flex w-full max-w-sm items-center space-x-2">
-                <Input
-                  type="text"
-                  name="new-handle"
-                  placeholder={`example.${domain}`}
-                  defaultValue={newHandle}
-                />
-                <Button type="submit">Submit</Button>
+                )}
+                {profile && (
+                  <>
+                    <p className="flex flex-row gap-2 items-center mt-4 text-sm text-muted-forground">
+                      <Check className="text-green-500 size-4" /> Conta
+                      encontrada
+                    </p>
+                    <Profile profile={profile} className="mt-4" />
+                  </>
+                )}
               </div>
-              <p className="text-sm text-muted-foreground">
-                Enter the {domain} handle that you would like to have, not
-                including the @
-              </p>
-              {error2 && (
-                <p className="text-sm text-red-500">
-                  {(() => {
-                    switch (error2) {
-                      case "handle taken":
-                        return "Handle already taken - please enter a different handle"
-                      case "invalid handle":
-                      case "slur":
-                        return "Invalid handle - please enter a different handle"
-                      case "reserved":
-                        return "Reserved handle - please enter a different handle"
-                      default:
-                        return "An error occured - please try again"
-                    }
-                  })()}
+            </form>
+          </Stage>
+          <Stage
+            title="Escolha seu novo usuário"
+            number={2}
+            disabled={!profile}
+          >
+            <form>
+              <input type="hidden" name="handle" value={handle} />
+              <div className="grid w-full max-w-md items-center gap-1.5">
+                <div className="flex items-center space-x-2 w-full max-w-md">
+                  <Input
+                    type="text"
+                    name="new-handle"
+                    placeholder={`example.${domain}`}
+                    defaultValue={newHandle}
+                  />
+                  <Button type="submit">Enviar</Button>
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  Informe o usuário que deseja ter no {domain}, sem o @
                 </p>
-              )}
-            </div>
-          </form>
-        </Stage>
-        <Stage
-          title="Change your handle within the Bluesky app"
-          number={3}
-          disabled={!newHandle || !!error2}
-          last
-        >
-          <p className="max-w-lg text-sm">
-            Go to Settings {">"} Advanced {">"} Change my handle. Select &quot;I
-            have my own domain&quot; and enter{" "}
-            {newHandle ? `"${newHandle}"` : "your new handle"}. Finally, tap
-            &quot;Verify DNS Record&quot;.
-          </p>
-          <p className="mt-6 max-w-lg text-sm">
-            If you like this project, consider{" "}
-            <a href="https://github.com/sponsors/mozzius" className="underline">
-              sponsoring my work
-            </a>
-            .
-          </p>
-        </Stage>
-      </div>
-    </main>
+                {error2 && (
+                  <p className="text-sm text-red-500">
+                    {(() => {
+                      switch (error2) {
+                        case "handle taken":
+                          return "Usuário indisponível pois já está sendo utilizado"
+                        case "invalid handle":
+                        case "slur":
+                          return "Usuário inválido, tente novamente"
+                        case "reserved":
+                          return "Usuário reservado, tente novamente"
+                        default:
+                          return "Ocorreu um erro desconhecido, tente novamente mais tarde"
+                      }
+                    })()}
+                  </p>
+                )}
+              </div>
+            </form>
+          </Stage>
+          <Stage
+            title="Altere seu @ no Bluesky"
+            number={3}
+            disabled={!newHandle || !!error2}
+            last
+          >
+            <p className="max-w-lg text-sm">
+              Vá em{" "}
+              <strong>
+                Settings {">"} Advanced {">"} Change my handle
+              </strong>
+              . Selecione <strong>&quot;I have my own domain&quot;</strong> e
+              digite{" "}
+              <span className="font-mono font-bold">
+                {newHandle ? `"${newHandle}"` : "seu novo @"}
+              </span>
+              . Por fim, aperte em{" "}
+              <strong>&quot;Verify DNS Record&quot;</strong>.
+            </p>
+          </Stage>
+        </div>
+      </main>
+
+      <footer className="container grid gap-2 items-center pb-8">
+        <p className="text-sm">
+          Diretamente de Pernambuco por{" "}
+          <a
+            className="underline bold underline-offset-4"
+            href="https://joseli.to"
+          >
+            Joselito
+          </a>
+          , com muito amor e carinho.
+        </p>
+        <p className="text-xs text-gray-400">
+          Este site não utiliza nenhum cookie nem coleta absolutamente nenhum
+          dado.
+        </p>
+      </footer>
+    </div>
   )
 }
 
-const RESERVED = [
-  "Jungkook",
-  "JeonJungkook",
-  "Jeon",
-  "JK",
-  "JJK",
-  "Kim",
-  "KimTaehyung",
-  "V",
-  "Taehyung",
-  "Tae",
-  "Jin",
-  "Seokjin",
-  "KimSeokjin",
-  "RM",
-  "Namjoon",
-  "Nam",
-  "KimNamjoon",
-  "MinYoongi",
-  "Yoongi",
-  "Yoon",
-  "AgustD",
-  "MYG",
-  "Suga",
-  "PJM",
-  "Jimin",
-  "ParkJimin",
-  "Park",
-  "Abcdefghi__lmnopqrsvuxyz",
-  "JM",
-  "UarMyHope",
-  "Rkrive",
-  "THV",
-  "KTH",
-  "SBT",
-  "BANGPD",
-  "projeto",
-  "army",
-  "armys ",
-  "info",
-  "projects",
-  "Pic",
-  "New",
-  "Babys",
-].map((x) => x.toLowerCase())
+const RESERVED = ["joselito"].map((x) => x.toLowerCase())
+
+const BLOCKED = ["bolsonaro", "trump"].map((x) => x.toLowerCase())

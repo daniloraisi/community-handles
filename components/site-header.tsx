@@ -20,7 +20,18 @@ export function SiteHeader({ children }: Props) {
   const [showMenu, setShowMenu] = useState(false)
 
   const links = (
-    <nav className="flex items-center gap-4 md:gap-1">
+    <nav className="flex gap-4 items-center md:gap-1">
+      <Link href={siteConfig.links.bluesky} target="_blank" rel="noreferrer">
+        <div
+          className={buttonVariants({
+            size: "sm",
+            variant: "ghost",
+          })}
+        >
+          <Icons.bluesky className="size-5" />
+          <span className="sr-only">Bluesky</span>
+        </div>
+      </Link>
       <Link href={siteConfig.links.github} target="_blank" rel="noreferrer">
         <div
           className={buttonVariants({
@@ -32,6 +43,28 @@ export function SiteHeader({ children }: Props) {
           <span className="sr-only">GitHub</span>
         </div>
       </Link>
+      <Link href="https://joseli.to" target="_blank" rel="noreferrer">
+        <div
+          className={buttonVariants({
+            size: "sm",
+            variant: "ghost",
+          })}
+        >
+          <Icons.user className="size-5" />
+          <span className="sr-only">joselit.to</span>
+        </div>
+      </Link>
+      <Link href="https://notx.blue" target="_blank" rel="noreferrer">
+        <div
+          className={buttonVariants({
+            size: "sm",
+            variant: "ghost",
+          })}
+        >
+          <Icons.globe className="size-5" />
+          <span className="sr-only">notx.blue</span>
+        </div>
+      </Link>
       <ThemeToggle />
     </nav>
   )
@@ -40,8 +73,8 @@ export function SiteHeader({ children }: Props) {
 
   return (
     <>
-      <header className="sticky top-0 z-40 w-full border-b bg-background">
-        <div className="container flex h-16 items-center justify-between space-x-4 sm:space-x-0">
+      <header className="sticky top-0 z-40 w-full border-b bg-background" suppressHydrationWarning>
+        <div className="container flex justify-between items-center space-x-4 h-16 sm:space-x-0">
           {children}
           <div>
             <div className="block md:hidden">
@@ -52,7 +85,7 @@ export function SiteHeader({ children }: Props) {
                 onClick={() => setShowMenu((m) => !m)}
               />
             </div>
-            <div className="hidden flex-1 items-center justify-end space-x-4 md:flex">
+            <div className="hidden flex-1 justify-end items-center space-x-4 md:flex">
               {links}
             </div>
           </div>
@@ -60,13 +93,13 @@ export function SiteHeader({ children }: Props) {
       </header>
       <div
         className={cn(
-          "fixed top-16 z-30 w-full overflow-hidden border-b bg-background/80 transition-transform duration-500 md:hidden",
+          "overflow-hidden fixed top-16 z-30 w-full border-b transition-transform duration-500 bg-background/80 md:hidden",
           showMenu ? "translate-y-1px" : "-translate-y-full"
         )}
         aria-hidden={!showMenu}
       >
-        <div className="container flex h-full flex-col items-center justify-stretch px-4 pb-2">
-          <nav className="mb-2 flex w-full flex-col items-stretch gap-1 border-b py-2">
+        <div className="container flex flex-col items-center px-4 pb-2 h-full justify-stretch">
+          <nav className="flex flex-col gap-1 items-stretch py-2 mb-2 w-full border-b">
             {siteConfig.mainNav.map(
               (item, index) =>
                 item.href && (

@@ -3,19 +3,18 @@ export type SiteConfig = typeof siteConfig
 export const siteConfig = {
   mainNav: [
     {
-      title: "Join the community",
-      href: "/",
+      title: "Diretório",
+      href: "/pessoas",
     },
     {
-      title: "Members",
-      href: "/community",
-    },
-    {
-      title: "Create your own community handle",
-      href: "/create-your-own",
+      title: "FAQ",
+      href: "/perguntas",
     },
   ],
   links: {
-    github: "https://github.com/mozzius/community-handles",
+    home: "https://joseli.to",
+    notx: "https://notx.blue",
+    bluesky: "https://bsky.app/profile/joseli.to",
+    github: "https://github.com/breakzplatform/pessoas.dev",
   },
 }

@@ -116,8 +116,7 @@ export default async function IndexPage({
           </h1>
           {domain == "comunidade.dev.br" && (
             <h2>
-              Feito por e para pessoas da comunidade dev BR. É grátis e sem custo
-              nenhum.
+              Feito por e para pessoas da comunidade dev BR. É grátis.
             </h2>
           )}
           <p className="max-w-[700px] text-lg text-muted-foreground sm:text-xl">

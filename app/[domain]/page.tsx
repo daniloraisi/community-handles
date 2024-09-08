@@ -13,7 +13,7 @@ export function generateMetadata({ params }: { params: { domain: string } }) {
   const domain = params.domain
   return {
     title: `${domain} - Seu @ personalizado no Bluesky`,
-    description: `'Tenha seu usuário ${domain}`,
+    description: `Tenha seu usuário ${domain}`,
   }
 }
 

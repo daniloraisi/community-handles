@@ -30,7 +30,7 @@ export default function DomainLayout({ children, params }: Props) {
     />
         </head>
       </Fragment> */}
-      <SiteHeader items={siteConfig.mainNav}>
+      <SiteHeader domain={params.domain}>
         <MainNav title={params.domain} items={siteConfig.mainNav} />
       </SiteHeader>
       <div className="flex flex-col flex-1">{children}</div>

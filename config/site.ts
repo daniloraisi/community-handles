@@ -12,7 +12,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    bluesky: "https://bsky.app/profile/raisiexception.dev.br",
-    github: "https://github.com/daniloraisi/comunidade.dev.br",
+    bluesky: "https://bsky.app/profile/%1",
+    github: "https://github.com/daniloraisi/community-handles",
   },
 }

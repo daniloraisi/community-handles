@@ -21,7 +21,7 @@ export function SiteHeader({ domain, children }: Props) {
 
   const links = (
     <nav className="flex gap-4 items-center md:gap-1">
-      <Link href={siteConfig.links.bluesky.replace("%1", domain)} target="_blank" rel="noreferrer">
+      <Link href={siteConfig.links.bluesky.replace("%1", domain!)} target="_blank" rel="noreferrer">
         <div
           className={buttonVariants({
             size: "sm",

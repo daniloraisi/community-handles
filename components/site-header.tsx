@@ -12,16 +12,16 @@ import { Link } from "@/components/link"
 import { ThemeToggle } from "@/components/theme-toggle"
 
 interface Props {
+  domain?: string
   children?: React.ReactNode
-  items?: NavItem[]
 }
 
-export function SiteHeader({ children }: Props) {
+export function SiteHeader({ domain, children }: Props) {
   const [showMenu, setShowMenu] = useState(false)
 
   const links = (
     <nav className="flex gap-4 items-center md:gap-1">
-      <Link href={siteConfig.links.bluesky} target="_blank" rel="noreferrer">
+      <Link href={siteConfig.links.bluesky.replace("%1", domain)} target="_blank" rel="noreferrer">
         <div
           className={buttonVariants({
             size: "sm",
